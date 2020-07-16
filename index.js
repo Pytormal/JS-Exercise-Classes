@@ -27,6 +27,7 @@ class Airplane {
 // 👇 COMPLETE YOUR WORK BELOW 👇
 */
 
+
 /*
   TASK 1
     - Write a Person class whose constructor initializes `name` and `age` from arguments.
