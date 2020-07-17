@@ -119,8 +119,7 @@ class Car {
   fill(gallons) {
     console.log(`is holding ${this.tank} gallons`);
     this.tank += gallons;
-    console.log(`is holding ${this.tank} gallons`);
-    return;
+    return `is holding ${this.tank} gallons`
   }
   drive(distance) {
     const milesUntilEmpty = this.tank * this.milesPerGallon;
@@ -130,7 +129,8 @@ class Car {
       this.tank = 0;
       return `I ran out of fuel at ${this.odometer} miles!`;
     } else {
-      this.odometer = +distance;
+      this.odometer += distance;
+      this.tank -= distance / this.milesPerGallon;
     }
   }
 }
@@ -212,20 +212,20 @@ class Instructor extends Lambdasian {
     this.phrase = catchPhrase;
   }
   demo(subject) {
-    this.subject = subject
-    return `Today we are learning about ${subject}`
+    this.subject = subject;
+    return `Today we are learning about ${subject}`;
   }
   grade(student) {
-    this.student = student
-  return `${this.student} receives a perfect score on ${this.subject}`
+    this.student = student;
+    return `${this.student} receives a perfect score on ${this.subject}`;
   }
 }
 let LambdaInstructor = new Instructor();
 
-console.log("- - - Task4")
-console.log(LambdaInstructor.demo("Math"))
-console.log()
-console.log(LambdaInstructor.grade("Elle"))
+console.log("- - - Task4");
+console.log(LambdaInstructor.demo("Math"));
+console.log();
+console.log(LambdaInstructor.grade("Elle"));
 
 /*
   TASK 5
