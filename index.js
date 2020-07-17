@@ -112,73 +112,96 @@ class Car {
   constructor(model, milesPerGallon) {
     this.model = model;
     this.milesPerGallon = milesPerGallon;
-    this.tank = 0
-    this.odometer = 0
+    this.tank = 0;
+    this.odometer = 0;
   }
-  
+
   fill(gallons) {
-    
-    console.log(`is holding ${this.tank} gallons`)
+    console.log(`is holding ${this.tank} gallons`);
     this.tank += gallons;
-    console.log(`is holding ${this.tank} gallons`)
-    return
+    console.log(`is holding ${this.tank} gallons`);
+    return;
   }
   drive(distance) {
     const milesUntilEmpty = this.tank * this.milesPerGallon;
-    
+
     if (distance > milesUntilEmpty) {
       this.odometer += milesUntilEmpty;
       this.tank = 0;
-      return `I ran out of fuel at ${this.odometer} miles!`
-    }
-    else {
-      this.odometer = + distance;
+      return `I ran out of fuel at ${this.odometer} miles!`;
+    } else {
+      this.odometer = +distance;
     }
   }
-  
 }
-console.log(" - - - Task2")
-let Beetle = new Car("Beetle", 32)
+console.log(" - - - Task2");
+let Beetle = new Car("Beetle", 32);
 
-console.log(Beetle)
-console.log()
-console.log(Beetle.fill(12))
-console.log()
-console.log(Beetle)
-console.log()
-console.log(Beetle.drive(400))
-console.log()
-console.log(Beetle)
-
+console.log(Beetle);
+console.log(Beetle.fill(12));
+console.log();
+console.log(Beetle);
+console.log();
+console.log(Beetle.drive(400));
+console.log();
+console.log(Beetle);
+console.log();
 
 /*
   TASK 3
     - Write a Lambdasian class.
+
     - Its constructor takes a single argument - an object with the following keys:
+
         + name
         + age
         + location
+
     - Its constructor should initialize `name`, `age` and `location` properties on the instance.
+
     - Instances of Lambdasian should be able to `.speak()`:
+
         + Speaking should return a phrase `Hello my name is {name}, I am from {location}`.
+    
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-  
+  constructor(name, age, location) {
+    this.name = name;
+    this.age = age;
+    this.location = location;
+  }
+  speak() {
+    return `Hello, my name is ${this.name}, I am from ${this.location}`;
+  }
 }
+
+let Lambdaresult = new Lambdasian('AlexAndrew',28, 'Washington');
+
+console.log(" - - - Task3");
+console.log(Lambdaresult.speak());
 
 /*
   TASK 4
     - Write an Instructor class extending Lambdasian.
     - Its constructor takes a single argument - an object with the following keys:
+
         + All the keys used to initialize instances of Lambdasian.
+
         + `specialty`: what the instance of Instructor is good at, i.e. 'redux'
+
         + `favLanguage`: i.e. 'JavaScript, Python, Elm etc.'
+
         + `catchPhrase`: i.e. `Don't forget the homies`.
+
     - The constructor calls the parent constructor passing it what it needs.
+
     - The constructor should also initialize `specialty`, `favLanguage` and `catchPhrase` properties on the instance.
+
     - Instructor instances have the following methods:
+
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
+        
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
 class Instructor {}
